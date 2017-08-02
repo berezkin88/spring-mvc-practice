@@ -39,7 +39,6 @@ public class Waiter extends Employee {
                 "telephoneNumber='" + getTelephoneNumber() + '\'' + "\n"+
                 "position=" + getPosition() + "\n"+
                 "salary=" + getSalary() + "\n"+
-                "orders=" + orders + "\n" +
                 '}' + "\n";
     }
 }
