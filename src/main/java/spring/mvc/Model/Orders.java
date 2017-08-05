@@ -37,13 +37,17 @@ public class Orders {
     @Column(name = "order_date")
     private Date orderDate;
 
+    @Column(name = "status")
+    @Enumerated(EnumType.STRING)
+    private Status status;
+
     @Override
     public String toString() {
         return "Orders{" +
-                "id=" + id +
-                ", dishes=" + dishes +
+                "waiter=" + waiter +
                 ", tableNumber=" + tableNumber +
                 ", orderDate=" + orderDate +
+                ", status=" + status +
                 '}';
     }
 
