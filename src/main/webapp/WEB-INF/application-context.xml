@@ -5,7 +5,8 @@
        default-autowire="byName"
 >
 
-    <bean id="employeeServise" class="spring.mvc.service.EmployeeService"/>
+    <bean id="employeeService" class="spring.mvc.service.EmployeeService"/>
     <bean id="employeeDao" class="spring.mvc.dao.hibernate.HEmployeeDao"/>
+
 
 </beans>

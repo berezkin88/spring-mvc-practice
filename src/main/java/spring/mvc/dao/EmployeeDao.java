@@ -14,9 +14,13 @@ public interface EmployeeDao {
 
     Employee load(Long id);
 
-    List<Employee> findAll();
+    List findAll();
+
+    public List findAllNameAndSurname();
 
     Employee findByName(String name);
+
+    List findByParam(String target);
 
     void remove(Employee employee);
 

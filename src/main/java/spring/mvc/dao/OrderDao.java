@@ -13,5 +13,11 @@ public interface OrderDao {
 
     List<Orders> findAll();
 
+    List findAllOpen();
+
+    List findAllClosed();
+
+    Orders findById(Integer id);
+
     void removeAll();
 }

@@ -28,13 +28,26 @@ public class HEmployeeDao implements EmployeeDao {
     }
 
     @Override
-    public List<Employee> findAll() {
+    public List findAll() {
         return sessionFactory.getCurrentSession().createQuery("SELECT e from Employee e").list();
     }
 
     @Override
+    public List findAllNameAndSurname() {
+        return sessionFactory.getCurrentSession().createQuery("SELECT e.name, e.surname from Employee e").list();
+    }
+
+    @Override
     public Employee findByName(String name) {
-        return (Employee) sessionFactory.getCurrentSession().createQuery("SELECT e from Employee e where e.name like :name").setParameter("name", name).uniqueResult();
+        return (Employee) sessionFactory.getCurrentSession().createQuery("SELECT e from Employee e where e.name like :name").
+                setParameter("name", name).uniqueResult();
+    }
+
+    @Override
+    public List findByParam(String target) {
+        return sessionFactory.getCurrentSession().
+                createQuery("SELECT e from Employee e where e.name or e.surname like :target").
+                setParameter("target", target).list();
     }
 
     @Override

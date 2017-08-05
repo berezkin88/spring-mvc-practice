@@ -14,13 +14,23 @@ public class EmployeeService {
     private EmployeeDao employeeDao;
 
     @Transactional
-    public List<Employee> getEmployees() {
+    public List getEmployees() {
         return employeeDao.findAll();
     }
 
     @Transactional
     public Employee getEmployee(String employeeName) {
         return employeeDao.findByName(employeeName);
+    }
+
+    @Transactional
+    public List listEmployeesNameAndSurname(){
+        return employeeDao.findAllNameAndSurname();
+    }
+
+    @Transactional
+    public List findEmployeesByNames(String target) {
+        return employeeDao.findByParam(target);
     }
 
     public void setEmployeeDao(EmployeeDao employeeDao) {

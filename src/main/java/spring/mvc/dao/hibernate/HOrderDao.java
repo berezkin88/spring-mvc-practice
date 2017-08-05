@@ -24,6 +24,21 @@ public class HOrderDao implements OrderDao {
     }
 
     @Override
+    public List findAllOpen() {
+        return sessionFactory.getCurrentSession().createQuery("select o from Orders o where o.status='OPEN'").list();
+    }
+
+    @Override
+    public List findAllClosed() {
+        return sessionFactory.getCurrentSession().createQuery("select o from Orders o where o.status='CLOSE'").list();
+    }
+
+    @Override
+    public Orders findById(Integer id) {
+        return sessionFactory.getCurrentSession().load(Orders.class, id);
+    }
+
+    @Override
     public void removeAll() {
         sessionFactory.getCurrentSession().createQuery("delete from Orders").executeUpdate();
     }
