@@ -2,11 +2,13 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
-       default-autowire="byName"
->
+       default-autowire="byName">
 
     <bean id="employeeService" class="spring.mvc.service.EmployeeService"/>
     <bean id="employeeDao" class="spring.mvc.dao.hibernate.HEmployeeDao"/>
-
+    <bean id="orderDao" class="spring.mvc.dao.hibernate.HOrderDao"/>
+    <bean id="orderService" class="spring.mvc.service.OrderService"/>
+    <bean id="menuDao" class="spring.mvc.dao.hibernate.HMenuDao"/>
+    <bean id="menuService" class="spring.mvc.service.MenuService"/>
 
 </beans>

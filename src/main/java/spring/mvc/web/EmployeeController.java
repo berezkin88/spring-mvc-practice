@@ -1,9 +1,7 @@
 package spring.mvc.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.ModelAndView;
 import spring.mvc.Model.Employee;
 import spring.mvc.service.EmployeeService;
 
@@ -19,14 +17,21 @@ public class EmployeeController {
     private EmployeeService employeeService;
 
     @RequestMapping(value = "/employee", method = RequestMethod.GET)
-    public List<Employee> employee (Map<String, Object> model){
-        return employeeService.getEmployees();
-        }
+    public List employee(Map<String, Object> model) {
+        return employeeService.listEmployeesNameAndSurname();
+    }
 
     @RequestMapping(value = "/employee/{employeeName}", method = RequestMethod.GET)
-    public Employee employee (@PathVariable String employeeName){
+    public Employee employee(@PathVariable String employeeName) {
         return employeeService.getEmployee(employeeName);
-        }
+    }
+
+    @RequestMapping(value = "/employees/{id}", method = RequestMethod.GET)
+    public Employee employee(@PathVariable Long id){
+        return employeeService.getEmployeeById(id);
+    }
+
+
 
     @Autowired
     public void setEmployeeService(EmployeeService employeeService) {

@@ -1,6 +1,7 @@
 package spring.mvc.Model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "employee")
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@Proxy(lazy = false)
 public class Employee {
 
     @Id

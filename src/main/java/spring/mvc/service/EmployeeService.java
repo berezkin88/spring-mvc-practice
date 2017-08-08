@@ -33,6 +33,11 @@ public class EmployeeService {
         return employeeDao.findByParam(target);
     }
 
+    @Transactional
+    public Employee getEmployeeById(Long id){
+        return employeeDao.load(id);
+    }
+
     public void setEmployeeDao(EmployeeDao employeeDao) {
         this.employeeDao = employeeDao;
     }

@@ -12,6 +12,6 @@
 </head>
 <body>
 <h1>Hello World! It is now: ${currentTime}</h1>
-<a href="employees">Get all employees</a>
+<a href="employee">Get all employees</a>
 </body>
 </html>
