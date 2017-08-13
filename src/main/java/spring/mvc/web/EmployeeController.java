@@ -27,13 +27,17 @@ public class EmployeeController {
     }
 
     @RequestMapping(value = "/employees/{id}", method = RequestMethod.GET)
-    public Employee employee(@PathVariable Long id){
+    public Employee employee(@PathVariable Long id) {
         return employeeService.getEmployeeById(id);
     }
 
-
+    @RequestMapping(value = "/employee/search", method = RequestMethod.GET)
+    public List employees(@RequestParam("target") String target) {
+        return employeeService.findEmployeesByNames(target);
+    }
 
     @Autowired
+
     public void setEmployeeService(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }

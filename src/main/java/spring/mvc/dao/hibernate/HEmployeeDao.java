@@ -45,9 +45,17 @@ public class HEmployeeDao implements EmployeeDao {
 
     @Override
     public List findByParam(String target) {
+        String[] string = target.split(" ");
+        if (string.length == 1) {
         return sessionFactory.getCurrentSession().
-                createQuery("SELECT e from Employee e where e.name or e.surname like :target").
+                createQuery("SELECT e from Employee e where e.name like :target or e.surname like :target").
                 setParameter("target", target).list();
+        } else {
+            return sessionFactory.getCurrentSession().
+                    createQuery("SELECT e from Employee e where e.name like :par1 and e.surname like :par2")
+                    .setParameter("par1", string[0]).setParameter("par2", string[1])
+                    .list();
+            }
     }
 
     @Override
