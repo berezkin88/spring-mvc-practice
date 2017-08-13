@@ -1,6 +1,7 @@
 package spring.mvc.Model;
 
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 

@@ -12,7 +12,7 @@ public class HMenuDao implements MenuDao {
 
     @Override
     public List listMenus() {
-        return sessionFactory.getCurrentSession().createQuery("select m from Menu m").list();
+        return sessionFactory.getCurrentSession().createQuery("select m.title from Menu m").list();
     }
 
     @Override

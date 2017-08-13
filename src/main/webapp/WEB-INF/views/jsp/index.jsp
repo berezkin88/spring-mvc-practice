@@ -16,14 +16,28 @@
 <body>
 <h1>Hello World! It is now: ${currentTime}</h1>
 <a href="employee">Get all employees</a>
-
 <br/><br/>
+
+<a href="menu">Get all menus</a>
+<br/><br/>
+
+
 <c:url var="search" value="/employee/search"/>
 <form:form action="${search}" method="get">
     <table>
         <tr>
-            <td><spring:message text="Enter name and surname"/></td>
+            <td><spring:message text="Enter name or surname"/></td>
             <td><input id="txt" name="target"></td>
+        </tr>
+    </table>
+</form:form>
+
+<c:url var="search" value="/menu/search"/>
+<form:form action="${search}" method="get">
+    <table>
+        <tr>
+            <td><spring:message text="Enter menu title"/></td>
+            <td><input id="txt1" name="title"></td>
         </tr>
     </table>
 </form:form>

@@ -1,12 +1,15 @@
 package spring.mvc.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.List;
 
 @Entity
 @Table(name = "menu")
+@Proxy(lazy = false)
 public class Menu {
 
     @Id
@@ -18,7 +21,7 @@ public class Menu {
     @Column(name = "title")
     private String title;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "menu_dish",
             joinColumns = @JoinColumn(name = "id_menu"),
             inverseJoinColumns = @JoinColumn(name = "id_dish"))
