@@ -21,6 +21,9 @@
 <a href="menu">Get all menus</a>
 <br/><br/>
 
+<a href="order">Get all orders</a>
+<br/><br/>
+
 
 <c:url var="search" value="/employee/search"/>
 <form:form action="${search}" method="get">

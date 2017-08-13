@@ -26,7 +26,7 @@ public class OrderService {
     }
 
     @Transactional
-    public Orders getOrderById(Integer id){
+    public Orders getOrderById(Long id){
         return orderDao.findById(id);
     }
 

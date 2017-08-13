@@ -1,6 +1,8 @@
 package spring.mvc.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Proxy;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,6 +13,7 @@ import java.util.List;
  */
 @Entity
 @Table(name = "orders")
+@Proxy(lazy = false)
 public class Orders {
 
     @Id
@@ -21,9 +24,10 @@ public class Orders {
 
     @ManyToOne
     @JoinColumn(name = "employee_id")
+    @JsonIgnore
     private Employee waiter;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(
             name = "dish_to_order",
             joinColumns = @JoinColumn(name = "order_id"),
@@ -89,5 +93,13 @@ public class Orders {
 
     public void setOrderDate(Date orderDate) {
         this.orderDate = orderDate;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }

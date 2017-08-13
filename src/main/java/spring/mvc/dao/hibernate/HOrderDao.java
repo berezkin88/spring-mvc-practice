@@ -34,7 +34,7 @@ public class HOrderDao implements OrderDao {
     }
 
     @Override
-    public Orders findById(Integer id) {
+    public Orders findById(Long id) {
         return sessionFactory.getCurrentSession().load(Orders.class, id);
     }
 

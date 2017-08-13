@@ -17,7 +17,7 @@ public interface OrderDao {
 
     List findAllClosed();
 
-    Orders findById(Integer id);
+    Orders findById(Long id);
 
     void removeAll();
 }
